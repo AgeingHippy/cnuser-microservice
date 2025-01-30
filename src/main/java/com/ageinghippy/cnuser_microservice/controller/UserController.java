@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -14,6 +16,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return new ArrayList<User>();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
